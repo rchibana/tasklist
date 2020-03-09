@@ -7,8 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 /**
  * Created by Rodrigo Chibana
@@ -32,5 +34,8 @@ public class Task {
 
     @ManyToOne
     private Person assignedTo;
+
+    @OneToMany
+    private Set<Subtask> subtasks;
 
 }
