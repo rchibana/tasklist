@@ -1,5 +1,7 @@
 package com.chibana.tasklist.controller;
 
+import com.chibana.tasklist.service.task.TaskService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/task")
 public class TaskController {
+
+    private TaskService taskService;
+
+    public TaskController(@Autowired final TaskService taskService) {
+        this.taskService = taskService;
+    }
 
     @GetMapping("/{id}")
     public String getTask() {
